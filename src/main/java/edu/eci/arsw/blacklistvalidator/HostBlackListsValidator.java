@@ -33,6 +33,8 @@ public class HostBlackListsValidator {
     public List<Integer> checkHost(String ipaddress, int N){
         
         LinkedList<Integer> blackListOcurrences=new LinkedList<>();
+
+        int checkedListsCount=0;
         
         int ocurrencesCount=0;
         
@@ -47,6 +49,7 @@ public class HostBlackListsValidator {
         // int checkedListsCount=0;
         
         for (int i=0;i<N && ocurrencesCount<BLACK_LIST_ALARM_COUNT;i++){
+            checkedListsCount++;
             int star = i*listDivision;
             int end = (i == N - 1) ? totalLists:(star + listDivision);
             threads[i] = new theThread(ipaddress, star, end, blackListOcurrences, ocurrencesCount, skds);
@@ -68,7 +71,7 @@ public class HostBlackListsValidator {
             skds.reportAsTrustworthy(ipaddress);
         }                
         
-        LOG.log(Level.INFO, "Checked Black Lists:{0} of {1}", new Object[]{ocurrencesCount, totalLists});
+        LOG.log(Level.INFO, "Checked Black Lists:{0} of {1}", new Object[]{checkedListsCount, totalLists});
         
         return blackListOcurrences;
     }
