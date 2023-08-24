@@ -85,18 +85,44 @@ Con lo anterior, y con los tiempos de ejecución dados, haga una gráfica de tie
 
 3. De acuerdo con lo anterior, si para este problema en lugar de 100 hilos en una sola CPU se pudiera usar 1 hilo en cada una de 100 máquinas hipotéticas, la ley de Amdahls se aplicaría mejor?. Si en lugar de esto se usaran c hilos en 100/c máquinas distribuidas (siendo c es el número de núcleos de dichas máquinas), se mejoraría?. Explique su respuesta.
 
-**Fotos parte 3**
+**Respuestas**
+
+## PARTE 1
+**Si usamos start() tendriamos una respuesta no determinista pues se crea el hilo y luego ejecuta el metodo run() mientras que si usamos run() unicamente correra este metodo.**
+
+## PARTE 3
 > 1 hilo
 > 
->![image](https://github.com/santiforero1018/LAB1_ARSW/assets/89321404/58de4507-7d7b-4148-ba14-cce01a0d7617)
+>![image](https://github.com/santiforero1018/LAB1_ARSW/assets/89321404/397a6118-fbb4-42dd-9b14-3b50536c07aa)
+>
+> EL pc cuenta con 12 nucleos por lo que se usaran 12 hilos
+>
+>![image](https://github.com/santiforero1018/LAB1_ARSW/assets/89321404/df729871-5345-45b5-9ef0-58e2bb0a5b9b)
+>
+> 24 hilo (El doble de los nucleos)
+>
+>![image](https://github.com/santiforero1018/LAB1_ARSW/assets/89321404/afb113b0-ab85-4d62-aff5-600c47423904)
 >
 > 50 hilos
 >
-> ![image](https://github.com/santiforero1018/LAB1_ARSW/assets/89321404/cb599f7c-854f-4a49-8b01-ef2ccf71a2f4)
+>![image](https://github.com/santiforero1018/LAB1_ARSW/assets/89321404/01abb623-c375-42af-9eb3-1b5bd6bc523c)
 >
 > 100 hilos
 >
-> ![image](https://github.com/santiforero1018/LAB1_ARSW/assets/89321404/f79d233d-f3ba-4964-9d95-531bfd9489ba)
+>![image](https://github.com/santiforero1018/LAB1_ARSW/assets/89321404/41edbe6c-cc1d-413f-9b6a-b5c02980c5e6)
+>
+> Grafica tiempo (Segundos) vs #hilos
+> 
+> ![image](https://github.com/santiforero1018/LAB1_ARSW/assets/89321404/21f27c11-de52-4695-ab73-4a6e0d7bd602)
+>
+> ![image](https://github.com/santiforero1018/LAB1_ARSW/assets/89321404/d15aad78-9f34-424c-b04c-028af83643ad)
+>
+> **Se puede concluir que a mayor número de hilos menor Tiempo, no obstante va llegar un punto en el que no va mejorar el tiempo por más hilos que usemos.**
+## PARTE 4
+**1. El mejor desempeño no se logra con 500 hilos ya que como se mencionó anteriormente el desempeño tiende a ser constante luego de cierta cantidad de hilos**
+**2. Aunque se usa el doble de hilos y se ve una pequeña mejoria, el usar el doble de hilos no asegura el doble del desempeño**
+**3. La ley de Amdahls no se aplicaria mejor ya que al tener un grupo grande de maquinas ejecutando un hilo cada una, el desempeño de cada maquina sera el mismo y posiblemente no sera el desempeño mas optimo, no obstante al tener varias maquinas trabajando al tiempo el trabajo sera mas eficiente por otro lado si se toma 100/c ciendo c el numero de nucleos, se aplicaria la ley de Amdahls obteniendo una mejora considerable de desempeño**
+
 
 
 
